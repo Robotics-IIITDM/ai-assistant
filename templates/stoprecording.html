@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mic Button POST Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #mic-btn {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: red;
+            color: white;
+            font-size: 40px;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        #mic-btn.recording {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="POST" action="/">
+        <button type="submit" id="mic-btn">🎤</button>
+    </form>
+
+    <script>
+        const micBtn = document.getElementById('mic-btn');
+        micBtn.onclick = () => {
+            micBtn.classList.add('recording');
+            // Form will auto-submit because it's type="submit"
+        };
+    </script>
+
+</body>
+</html>
