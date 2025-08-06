@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mic Button POST Form</title>
+    <title>Speech-to-Text Output</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             background: #f0f0f0;
             font-family: Arial, sans-serif;
         }
+
         #mic-btn {
             width: 100px;
             height: 100px;
@@ -25,10 +27,31 @@
             align-items: center;
             cursor: pointer;
             transition: background 0.3s;
+            margin-bottom: 30px;
         }
+
         #mic-btn.recording {
             background: green;
         }
+
+        #output-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            text-align: center;
+        }
+
+        #output-box h2 {
+            margin-bottom: 10px;
+        }
+
+        #output-box p {
+            font-size: 1.2em;
+            color: #333;
+        }
+
     </style>
 </head>
 <body>
@@ -37,11 +60,16 @@
         <button type="submit" id="mic-btn">🎤</button>
     </form>
 
+    <div id="output-box">
+        <h2>You said:</h2>
+        <p>{{ text }}</p>
+    </div>
+
     <script>
         const micBtn = document.getElementById('mic-btn');
         micBtn.onclick = () => {
             micBtn.classList.add('recording');
-            // Form will auto-submit because it's type="submit"
+            // Form auto-submits
         };
     </script>
 
